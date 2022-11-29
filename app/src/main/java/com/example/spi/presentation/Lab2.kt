@@ -6,21 +6,22 @@ import java.util.Random
 
 class Lab2 {
 
-	fun calculate(): String {
+	fun calculate() : String {
 		var result = ""
 		val a = A()
 		val b = B()
-		while (b.isRotatedForm != a.isRotatedForm) {
+		do {
 			a.generateQbit()
-			b.selectObserver(a.getQubit())
+			val qbit: QBit? = a.getQubit()
+			b.selectObserver(qbit)
 			result += "Observer predicts" + "\n"
 			result += "A: " + (if (a.isRotatedForm) "rotated" else "origin") + "\n"
 			result += "B: " + (if (b.isRotatedForm) "rotated" else "origin") + "\n"
-		}
+		} while (b.isRotatedForm != a.isRotatedForm)
 		result += "Common secret key" + "\n"
 		result += "Key A: " + a.value + "\n"
 		result += "Key B: " + b.value + "\n"
-		return result
+		return  result
 	}
 
 	private class A {
