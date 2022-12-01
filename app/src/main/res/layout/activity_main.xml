@@ -45,6 +45,16 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@id/bLab3" />
 
+	<Button
+		android:id="@+id/bLab4"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginHorizontal="20dp"
+		android:layout_marginTop="10dp"
+		android:text="Lab 4"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/bLab32" />
+
 	<ScrollView
 		android:layout_marginTop="20dp"
 		android:layout_width="match_parent"
@@ -52,15 +62,20 @@
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/bLab32">
+		app:layout_constraintTop_toBottomOf="@id/bLab4">
 
-		<TextView
-			android:textSize="26sp"
-			android:id="@+id/text"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-			android:text="Select lab" />
+
+		<HorizontalScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
+				android:textSize="22sp"
+				android:id="@+id/text"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:text="Select lab" />
+		</HorizontalScrollView>
 	</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

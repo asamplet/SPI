@@ -27,6 +27,58 @@ class Lab3 {
 			}
 			result += "\n"
 		}
+		result += "\nunitar - " + checkUn(result1, n, n) + "\n"
+		return result
+	}
+
+
+	fun checkUn(a: List<List<Int>>, n: Int, m: Int): Boolean{
+		var result = true
+		val transp = transpose(a, n, m)
+		val dgemm = dgemm(a, transp, n, m)
+
+		for(i in 0 until n){
+			for(j in 0 until m){
+				if(i != j){
+					if(dgemm[i][j] != 0) result = false
+				} else {
+					if (dgemm[i][j] != 1) result = false
+				}
+			}
+		}
+
+		return result
+	}
+
+	fun transpose(a: List<List<Int>>, n: Int, m: Int): List<List<Int>> {
+		val result = mutableListOf<List<Int>>()
+		var t: Int
+
+		for(i in 0 until n){
+			val r1 = mutableListOf<Int>()
+			for(j in 0 until m){
+				r1.add(a[j][i])
+			}
+			result.add(r1)
+		}
+
+		return result
+	}
+
+	fun dgemm(a: List<List<Int>>, b: List<List<Int>>, n: Int, m: Int): List<List<Int>> {
+		val result = mutableListOf<List<Int>>()
+
+		for(i in 0 until n){
+			val r1 = mutableListOf<Int>()
+			for(j in 0 until n){
+				r1.add(0)
+				for(k in 0 until m){
+					r1[j] += a[i][k] * b[k][j]
+				}
+			}
+			result.add(r1)
+		}
+
 		return result
 	}
 
@@ -84,6 +136,7 @@ class Lab3 {
 				)
 			)
 		}
+
 	}
 
 	fun printFunc(a: List<Func>): String {

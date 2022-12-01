@@ -9,6 +9,7 @@ import com.example.spi.presentation.Lab1
 import com.example.spi.presentation.Lab2
 import com.example.spi.presentation.Lab3
 import com.example.spi.presentation.Lab32
+import com.example.spi.presentation.Lab42
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 	private var button2: Button? = null
 	private var button3: Button? = null
 	private var button32: Button? = null
+	private var button4: Button? = null
 	var text: TextView? = null
 	@SuppressLint("MissingInflatedId")
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 		button2 = findViewById(R.id.bLab2)
 		button3 = findViewById(R.id.bLab3)
 		button32 = findViewById(R.id.bLab32)
+		button4 = findViewById(R.id.bLab4)
 		text = findViewById(R.id.text)
 		startCalculation()
 	}
@@ -44,6 +47,10 @@ class MainActivity : AppCompatActivity() {
 
 		button32?.setOnClickListener {
 			text?.text = Lab32().calculate()
+		}
+
+		button4?.setOnClickListener {
+			text?.text = Lab42().calculate()
 		}
 	}
 }
